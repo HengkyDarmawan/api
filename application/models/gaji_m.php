@@ -8,7 +8,7 @@ class gaji_m extends CI_Model {
         if($id == null){
 		return $this->db->get('t_gaji_tendik')->result_array();
         }else{
-            return $this->db->get_where('t_gaji_tendik', ['id' => $id])->result_array();
+            return $this->db->get_where('t_gaji_tendik', ['id_golongan' => $id])->result_array();
         }
 	}
 }

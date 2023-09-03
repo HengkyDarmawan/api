@@ -8,7 +8,7 @@ class Gaji extends RestController {
 
     public function index_get()
     {
-        $id = $this->get('id');
+        $id = $this->get('id_golongan');
         if($id == null){
             $gaji = $this->gaji_m->getAllGaji();
         }else{
