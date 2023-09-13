@@ -3,22 +3,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 use chriskacerguis\RestServer\RestController;
 
-class Users extends RestController {
+class Jabatan extends RestController {
 
 
     public function index_get()
     {
         $id = $this->get('id');
         if($id == null){
-            $users = $this->users_m->getAll();
+            $jabatan = $this->jabatan_m->getAllJabatan();
         }else{
-            $users = $this->users_m->getAllUsers($id);
+            $jabatan = $this->jabatan_m->getAllJabatan($id);
         }
         
-        if($users){
+        if($jabatan){
             $this->response([
                 'status' => true,
-                'data' => $users
+                'data' => $jabatan
             ], RestController::HTTP_OK);
         } else{
             $this->response([
@@ -26,14 +26,5 @@ class Users extends RestController {
                 'message' => 'id not found'
             ], RestController::HTTP_NOT_FOUND);
         }
-        $this->response($users, RestController::HTTP_OK);
     }
-    // public function user_get(){
-    //     $users = $this->users_m->getAll();
-        
-    //     $this->response([
-    //         'status' => true,
-    //         'data' => $users
-    //     ], RestController::HTTP_OK);
-    // }
 }

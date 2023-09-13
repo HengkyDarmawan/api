@@ -10,7 +10,7 @@ class Gaji extends RestController {
     {
         $id = $this->get('id_golongan');
         if($id == null){
-            $gaji = $this->gaji_m->getAllGaji();
+            $gaji = $this->gaji_m->getDataGajiTendik();
         }else{
             $gaji = $this->gaji_m->getAllGaji($id);
         }
